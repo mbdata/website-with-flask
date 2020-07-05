@@ -1,6 +1,7 @@
 from flask import Flask
 
 from website.blueprints.page import page
+from website.extensions import debug_toolbar
 
 def create_app():
     """
@@ -14,5 +15,18 @@ def create_app():
     app.config.from_pyfile('settings.py', silent=True)
 
     app.register_blueprint(page)
+    extensions(app)
 
     return app
+
+
+def extensions(app):
+    """
+    Register extensions
+
+    :param app: Flask app instance
+    :return: None
+    """
+    debug_toolbar.init_app(app)
+
+    return None
