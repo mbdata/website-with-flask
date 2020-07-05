@@ -1,5 +1,7 @@
 from flask import Flask
 
+from website.blueprints.page import page
+
 def create_app():
     """
     Create a Flask application
@@ -11,13 +13,6 @@ def create_app():
     app.config.from_object('config.settings')
     app.config.from_pyfile('settings.py', silent=True)
 
-    @app.route('/')
-    def hello_world():
-        """
-        Render a Hello World reponse.
-
-        :return: Flask response
-        """
-        return "Hello World"
+    app.register_blueprint(page)
 
     return app
