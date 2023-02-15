@@ -1,4 +1,4 @@
 Flask==1.0.0
-werkzeug==0.15.3
+werkzeug==2.2.3
 gunicorn==19.5.0
 flask-debugtoolbar==0.10.0
